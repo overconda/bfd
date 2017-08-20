@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div ><p align="center" id="output"><img src="images/loading.gif"></p></div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var options = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    };
+
+	var Origin = [];
+
+	var Destinations = [];
+
+	Destinations[0] = [];
+    Destinations[0]['base_name'] = "Black Sabbath";
+    Destinations[0]['lat'] = "13.806223";
+    Destinations[0]['lng'] = "100.600335";
+
+    Destinations[1] = [];
+	Destinations[1]['base_name'] = "AC/DC";
+    Destinations[1]['lat'] = "13.806232";
+    Destinations[1]['lng'] = "100.600533";
+
+    Destinations[2] = [];
+    Destinations[2]['base_name'] = "Aerosmith";
+    Destinations[2]['lat'] = "13.806242";
+    Destinations[2]['lng'] = "100.600736";
+
+    Destinations[3] = [];
+    Destinations[3]['base_name'] = "Van Halen";
+    Destinations[3]['lat'] = "13.806267";
+    Destinations[3]['lng'] = "100.601198";
+
+    Destinations[4] = [];
+    Destinations[4]['base_name'] = "Happy House";
+    Destinations[4]['lat'] = "13.813116";
+    Destinations[4]['lng'] = "100.603612";
+
+    Destinations[5] = [];
+    Destinations[5]['base_name'] = "Coding Ville";
+    Destinations[5]['lat'] = "13.7860045";
+    Destinations[5]['lng'] = "100.7106121";
+
+	function success(pos) {
+     	var crd = pos.coords;
+
+		Origin['lat'] = crd.latitude;
+		Origin['lng'] = crd.longitude;
+
+
+
+
+		var dist = 0;
+		var ret = '';
+
+
+
+    	for(var i = 0; i<Destinations.length; i++){
+    		dist = CalculationByDistance(Origin['lat'], Origin['lng'], Destinations[i]['lat'], Destinations[i]['lng']);
+    		Destinations[i]['distance'] = dist;
+    		//ret += "<p>Distance from here to [" + Destinations[i]['name'] + "] = " + dist + " km.</p>";
+    	}
+
+    	///sort
+    	Destinations.sort(function(a,b){
+    		return a['distance'] - b['distance'];
+    	});
+    	console.log(Destinations);
+
+    	ret = "<p>Distance from here , sort already";
+    	for(var i = 0; i<Destinations.length; i++){
+    		var x = Destinations[i]['distance'];
+    		if(x>1){
+    			ret += "<p>" + eval(i+1) + ". " + Destinations[i]['base_name'] + " / " + x.toFixed(3) + " km.</p>";
+    		}else{
+    			x = x*1000;
+    			ret += "<p>" + eval(i+1) + ". " + Destinations[i]['base_name'] + " / " + x.toFixed(3) + " m.</p>";
+    		}
+
+
+    	}
+
+    	$('#output').html(ret);
+    };
+
+    function error(err) {
+      //console.warn(`ERROR(${err.code}): ${err.message}`);
+        $('#output').html("<b style='color:red'>ERROR: Expired, Your device may not have Location Service</b>");
+    };
+	navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+
+
+
+
+	function CalculationByDistance( initialLat,  initialLong,  finalLat,  finalLong){
+		var R = 6371; // km
+		var dLat = toRadians(finalLat-initialLat);
+		var dLon = toRadians(finalLong-initialLong);
+		initialLat = toRadians(initialLat);
+		finalLat = toRadians(finalLat);
+
+		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+		        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(initialLat) * Math.cos(finalLat);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		return R * c;
+	}
+
+	function toRadians(deg) {
+	  return deg * (Math.PI/180)
+	}
+});
+
+</script>
+
+</body>
+</html>

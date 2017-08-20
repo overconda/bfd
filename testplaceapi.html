@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <style>
+        #result{
+            font-family: 'Merriweather', serif;
+            font-size: 32pt.;
+        }
+        </style>
+    </head>
+<body>
+    <div ><p align="center" id="result"><img src="images/loading.gif"></p></div>
+    <script>
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+        var ret;
+
+      ret = '<h2>Your current position is:';
+      ret += `<br>Latitude : ${crd.latitude}`;
+      ret += `<br>Longitude: ${crd.longitude}`;
+      ret += `<br>More or less ${crd.accuracy} meters.</h2>`;
+        
+        console.log(pos);
+        
+        $('#result').html(ret);
+    };
+
+    function error(err) {
+      //console.warn(`ERROR(${err.code}): ${err.message}`);
+        $('#result').html("<b style='color:red'>ERROR: Expired, Your device may not have Location Service</b>");
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+    </script>
+</body>
+</html>

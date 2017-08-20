@@ -1,0 +1,29 @@
+<html>
+<script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+<body>
+  <div id="c">123
+</div>
+
+<div id="d">bb
+</div>
+
+<button id="x">
+check
+</button>
+</body>
+<script>
+var a =false;
+var b = true;
+
+
+
+$('#x').click(function(){
+	if(a){
+    $('#c').text('Not A');
+  }else{
+    $('#c').text('AAA');
+  }
+  //alert(a);
+})
+</script>
+</html>

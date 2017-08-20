@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h2>Our offices</h2>
+<ul id="locations">
+  <li id="office-1" data-latlon="13.806223,100.600335">Black Sabbath</li>
+  <li id="office-2" data-latlon="13.806232,100.600533">AC/DC</li>
+  <li id="office-3" data-latlon="13.806242,100.600736">Aerosmith</li>
+  <li id="office-4" data-latlon="13.806267,100.601198">Van Halen</li>
+  <li id="office-5" data-latlon="13.812975,100.604005">Happy House</li>
+</ul>
+ 
+<script type="text/javascript" src="../js/latlon-vincenty.js"></script>
+<script>
+  window.onload = function() {
+    navigator.geolocation.getCurrentPosition(sortResults);
+  }
+ 
+  function sortResults(position) {
+    // Grab current position
+    var latlon = new LatLon(position.coords.latitude, position.coords.longitude);
+ 
+    var locations = document.getElementById('locations');
+    var locationList = locations.querySelectorAll('li');
+    var locationArray = Array.prototype.slice.call(locationList, 0);
+ 
+    locationArray.sort(function(a,b){
+      var locA  = a.getAttribute('data-latlon').split(',');
+      var locB  = b.getAttribute('data-latlon').split(',');
+ 
+      distA = latlon.distanceTo(new LatLon(Number(locA[0]),Number(locA[1])));
+      distB = latlon.distanceTo(new LatLon(Number(locB[0]),Number(locB[1])));
+      return distA - distB;
+    });
+ 
+    //Reorder the list
+    locations.innerHTML = "";
+    locationArray.forEach(function(el) {
+      locations.appendChild(el);
+    });
+ 
+};
+</script>
+</body>
+</html>

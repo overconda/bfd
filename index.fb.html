@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv=”Pragma” content=”no-cache”>
+<meta http-equiv=”Expires” content=”-1″>
+<meta http-equiv=”CACHE-CONTROL” content=”NO-CACHE”>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<title>Singha Beerfinder</title>
+
+<!--Phonegap-->
+<!--
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+		app.initialize();
+</script>
+-->
+<!--Phonegap-->
+
+<script>
+// This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+		console.log('checkLoginState');
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1413391252089699',
+    cookie     : true,  // enable cookies to allow the server to access
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.8' // use graph api version 2.8
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+	/*
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!' +
+        '<img src="https://graph.facebook.com/' + response.id + '/picture?type=square"> ' +
+        '<img src="https://graph.facebook.com/' + response.id + '/picture?type=small"> ' +
+        '<img src="https://graph.facebook.com/' + response.id + '/picture?type=normal"> ' +
+        '<img src="https://graph.facebook.com/' + response.id + '/picture?type=large"> ' +
+        '<img src="https://graph.facebook.com/' + response.id + '/picture?width=140&height=140"> ';
+    });
+  }
+	*/
+</script>
+
+
+<!--Animate CSS-->
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+<!--Mmenu CSS-->
+<link href="components/jquery.mmenu/jquery.mmenu.all.css" rel="stylesheet" type="text/css">
+
+<!--OWL Carousel CSS-->
+<link href="components/OwlCarousel2-2.2.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+<link href="components/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+
+<!--Tabulous CSS-->
+<link href="components/tabulous.js/tabulous.css" rel="stylesheet" type="text/css">
+
+<!--Main elements CSS-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!--Color scheme CSS-->
+<link href="css/color-scheme.css" rel="stylesheet" type="text/css">
+
+<!--Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+
+</head>
+
+<body class="login-front">
+
+	<!--Page loading-->
+    <div id="page-loading" class="Fixed">
+        <div class="loading-element">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+	<!--End-->
+
+    <!--Gradient background-->
+    <div id="gradient-bg"></div>
+    <!--End-->
+
+    <!--Slide menu start-->
+    <nav id="slide-menu">
+       <ul class="mm-nolistview">
+          <li class="slide-menu-active"><a href="#">Menu</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Menu</a></li>
+       </ul>
+    </nav>
+    <!--Slide menu end-->
+
+	<!--Container wrapper start-->
+    <div id="container-wrapper" class="bg-image" data-bg-image="images/upload/login-bg-image.jpg">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-one">
+
+                    <!--Login logo start-->
+                    <div class="login-top text-uppercase">
+
+                    	<!--
+                        <h1>Welcome to Singha</h1>
+                        -->
+
+                        <div class="singha-logo">
+                        	<img src="images/logo-singha-login.png" alt="Singha Beer"/>
+                        </div>
+
+                        <div class="login-logo">
+                        	<img src="images/logo-mockup.png" alt="logo" />
+                        </div>
+
+                        <div class="login-desc">
+                            Unlocked and ruled the pubs around the world
+                        </div>
+
+                    </div>
+                    <!--Login logo end-->
+
+                    <!--Login method start-->
+                    <div class="login-method">
+                        <ul>
+                            <li class="login-twitter">
+                            	<a class="modal-open" href="#">Log in with Twitter</a>
+                            </li>
+                            <!--
+                            <li class="login-facebook">
+                            	<a class="modal-open" href="javascript:void(0)" scope="public_profile,email" onclick="checkLoginState();">Log in with Facebook</a>
+                            </li>
+-->
+                            <li class="login-facebook">
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                            </li>
+                            <li class="login-instagram">
+                            	<a class="modal-open" href="#">Log in with Instagram</a>
+                            </li>
+                        </ul>
+
+												<div id="status">
+												</div>
+                        <!--Modal terms and conditions start-->
+                        <div class="modal modal-terms">
+                        	<div class="modal-content">
+
+								<div class="modal-terms-box">
+
+                                	<h1>Terms and Conditions</h1>
+
+                                	<div class="modal-inner custom-scroll">
+
+                                        <p><strong>Website Usage Terms and Conditions (Terms of Usage)</strong><br>
+Singha Beer Finder Website is operated under Boon Rawd Trading Company Limited. By using this website, you agree to comply with terms, conditions, and notices specified herein.</p>
+
+                                        <p><strong>Copyright and Information Usage</strong><br>
+                                        Boon Rawd Trading Co., Ltd. (Company) solely owns copyrights and intellectual property rights to all information appeared on Singha Beer Finder Website. All information is protected by law. You are allowed to access to this website, make copy, download, or print out information from this website for personal uses or educational purposes only, but you are prohibited from using website for commercial purposes, or converting it for other uses, either to make publications, videos, or websites, regardless of any form, as well as prohibited from using information from this website to compete in any way with Company.</p>
+
+                                        <p>You agree not to interfere or attempt to interfere in any way with administration of Singha Website. Company reserves the right to limit or suspend your access to this website at any time, either in whole or in part, without prior notice. The suspension does not constitute to a waiver of any right or measure Company has under the law. Information appeared in this website is for general information only. The information contained in this website may not be correct, complete or consistent with the up-to-date facts. The Company reserves the right to update or change contents in this website at any time without prior notice.</p>
+
+                                        <p><strong>Trademark</strong><br>
+                                        "SINGHA" Trademark and its product names, service names, or logos, or others belong to affiliates of Boonrawd Trading Co., Ltd. that are introduced, claimed and/or mentioned in this website are trademarks or registered trademarks of Boonrawd Trading Co., Ltd. or its affiliates. Company does not permit or approve for the use of such information and copyrights, trademarks, symbols, service marks, and trade names without prior written notice from Company or complying with terms and conditions prescribed herein.</p>
+
+                                        <p><strong>Connection to Other Websites</strong><br>
+                                        This website may contain hyperlinks to third party websites. You are advisable to check the terms of use and use such websites carefully. Company is not responsible for any message and content that are created and published by those third parties. The connection to other websites shall not be construed that Company verifies such websites or contents therein.</p>
+
+                                        <p><strong>Product and Service Distribution</strong><br>
+                                        Products and services displayed in this website may not be intended for distribution in your country or locality. Making reference to products and services in this website does not imply or guarantee that there will be a distribution of such products or services at any time in your area of living. You should check with your local representatives who are authorized by Boon Rawd Trading Co., Ltd. about the sale of specific products and services in your area.</p>
+
+                                        <p><strong>Collection and Protection of Personal Information</strong><br>
+Company may collect data during your normal use of this this website for purposes of monitoring and further development of this website. Such data collection will not include any personal information, which is able to identify each user.</p>
+
+                                        <p>Company may use your personal information according to purposes specified in terms and conditions herein, or for other purposes notified during data collection, or having received your approval thereafter. Company will maintain your personal information as long as it deems necessary to fulfill such purposes.</p>
+
+                                        <p><strong>Disclosure and Sharing of Personal information</strong><br>
+                                        Company will not sell or disclose your personal information to third parties, except if such disclosure is permitted or required by law, imposed, or prescribed by law or legal procedure, or is disclosed to authorities, state officials, or competent agencies in compliance with legal orders or requests.</p>
+
+                                        <p>Company may share your personal information with affiliates, and service providers of Company and its affiliates, or service providers designated by Companies to provide services to you on behalf of Company. Those service providers will not disclose your information, unless it is in accordance with the abovementioned terms and conditions or in compliance with law only. Company reserves the right to transfer personal information to third parties, in the event that there is a selling or transfer of company or company assets.</p>
+
+                                    </div>
+								</div>
+
+								<div class="button deny">
+									<a class="modal-close" href="#">Deny</a>
+								</div>
+
+								<div class="button accept">
+									<a href="home.html">Accept</a>
+								</div>
+
+                            </div>
+                        </div>
+                        <!--Modal terms and conditions end-->
+
+                    </div>
+                    <!--Login method end-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Container wrapper end-->
+
+<!--jQuery files-->
+<script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+
+<!--Retina js-->
+<script type="text/javascript" src="js/retina.min.js"></script>
+
+<!--Mmenu js-->
+<script type="text/javascript" src="components/jquery.mmenu/jquery.mmenu.all.js"></script>
+
+<!--SlimScroll js-->
+<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+
+<!--OWL Carousel js-->
+<script type="text/javascript" src="components/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
+
+<!--Isotope js-->
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+
+<!--Imageloaded js-->
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+
+<!--Tabulous js-->
+<script type="text/javascript" src="components/tabulous.js/tabulous.js"></script>
+
+<!--Vivus js-->
+<script type="text/javascript" src="components/vivus/vivus.min.js"></script>
+
+<!--Custom js file-->
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>

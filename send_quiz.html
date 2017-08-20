@@ -1,0 +1,70 @@
+<html>
+<body>
+  <script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+  <form name="frm" id="frm" action="_check_quiz.php" method="GET">
+    <input type="hidden" name="user_id" value="" id="user_id">
+    <input type="hidden" name="base_id" value="" id="base_id">
+    <input type="hidden" name="quiz_id" value="" id="quiz_id">
+    <input type="hidden" name="answer_id" value="" id="answer_id">
+  </form>
+  <script>
+  function parseQuery()
+  {
+    var currentURL = document.URL;
+    var params = currentURL.split("?");
+    var str = params[1];
+    if(typeof str != "string" || str.length == 0) return {};
+    var s = str.split("&");
+    var s_length = s.length;
+    var bit, query = {}, first, second;
+    for(var i = 0; i < s_length; i++)
+      {
+      bit = s[i].split("=");
+      first = decodeURIComponent(bit[0]);
+      if(first.length == 0) continue;
+      second = decodeURIComponent(bit[1]);
+      if(typeof query[first] == "undefined") query[first] = second;
+      else if(query[first] instanceof Array) query[first].push(second);
+      else query[first] = [query[first], second];
+      }
+    return query;
+  //console.log(query)
+  }
+
+  var q = parseQuery();
+  var qzid=q['quiz_id'];
+  var aid=q['ans_id'];
+  var bid=q['base_id'];
+  var uid=q['user_id'];
+
+  $('#quiz_id').val(qzid);
+  $('#answer_id').val(aid);
+  $('#base_id').val(bid);
+  $('#user_id').val(uid);
+
+  $('#frm').submit();
+  exit;
+
+  var myform = document.getElementById("frm");
+    var fd = new FormData(myform );
+    $.ajax({
+        url: "_check_quiz.php",
+        data: fd,
+        cache: false,
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        success: function (ret) {
+            // do something with the result
+            console.log("RETURN: ");
+            console.log(ret);
+            if(ret['is_correct']=='0'){
+              alert("sorry");
+            }else if(ret['is_correct']=='1'){
+              alert('Yeahhh');
+            }
+        }
+    });
+  </script>
+</body>
+</html>

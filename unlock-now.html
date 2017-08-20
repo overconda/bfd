@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv=”Pragma” content=”no-cache”>
+<meta http-equiv=”Expires” content=”-1″>
+<meta http-equiv=”CACHE-CONTROL” content=”NO-CACHE”>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<title>Singha Beerfinder</title>
+
+<!--Phonegap-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+		app.initialize();
+</script>
+<!--Phonegap-->
+
+
+<!--Animate CSS-->
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+<!--Mmenu CSS-->
+<link href="components/jquery.mmenu/jquery.mmenu.all.css" rel="stylesheet" type="text/css">
+
+<!--OWL Carousel CSS-->
+<link href="components/OwlCarousel2-2.2.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+<link href="components/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+
+<!--Tabulous CSS-->
+<link href="components/tabulous.js/tabulous.css" rel="stylesheet" type="text/css">
+
+<!--Main elements CSS-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!--Color scheme CSS-->
+<link href="css/color-scheme.css" rel="stylesheet" type="text/css">
+
+<!--Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+
+</head>
+
+<body class="full-page unlock-now">
+
+	<!--Page loading-->
+    <div id="page-loading" class="Fixed">
+        <div class="loading-element">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+	<!--End-->
+
+    <!--Gradient background-->
+    <div id="gradient-bg"></div>
+    <!--End-->
+
+    <!--Slide menu start-->
+    <nav id="slide-menu">
+       <ul class="mm-nolistview">
+          <li class="slide-menu-active">
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-about.svg" alt="About Beerfinder"/></figure>
+            	<span>ABOUT BEERFINDER</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-faqs.svg" alt="How To Play & Rule"/></figure>
+            	<span>HOW TO PLAY & RULE</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-top.svg" alt="Top Beerfinder"/></figure>
+            	<span>TOP BEERFINDER</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-faqs.svg" alt="FAQs"/></figure>
+            	<span>FAQs</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-terms.svg" alt="Term & Condition"/></figure>
+            	<span>TERMS & CONDITION</span>
+            </a>
+          </li>
+          <li>
+          	<a href="logout.html">
+            	<figure><img src="images/svg/slide-menu-logout.svg" alt="Log Out"/></figure>
+            	<span>LOG OUT</span>
+            </a>
+          </li>
+       </ul>
+    </nav>
+    <!--Slide menu end-->
+
+    <!--Menu notify start-->
+    <div class="notifying">
+    	<div class="notify-inset">
+
+            <h2>Just Notifying</h2>
+
+            <div class="notify-subject">
+                You are still be the pub guardian at
+            </div>
+
+            <div class="notify-image bg-image" data-bg-image="images/upload/slide-menu-notify-img.jpg"></div>
+
+            <div class="notify-base-name">
+                Dandvlvan, LDN
+            </div>
+
+            <div class="notify-time">
+                Time <span>15.30 Mins</span>
+            </div>
+
+            <div class="notify-desc">
+                25 People are trying to sack you down!
+            </div>
+
+        </div>
+    </div>
+    <!--Menu notify end-->
+
+	<!--Container wrapper start-->
+    <div id="container-wrapper">
+
+        <!--Top menu bar start-->
+        <div id="menu-top" class="Fixed">
+            <div class="menu-top-wrap">
+
+                <!--Burger menu-->
+                <div id="burger">
+                    <span></span>
+                    <span></span>
+                    <div class="burger-bar1"></div>
+                    <div class="burger-bar2"></div>
+                    <div class="burger-bar3"></div>
+                </div>
+
+                <!--Logo-->
+                <div id="logo">
+                    <a href="home.html">
+                        <img src="images/logo-top.png" alt="Singha Beerfinder" />
+                    </a>
+                </div>
+
+                <!--Page title-->
+                <h1 class="page-title">News</h1>
+
+            </div>
+        </div>
+        <!--Top menu bar end-->
+
+        <!--Bottom menu bar start-->
+        <div id="menu-bottom" class="Fixed">
+        	<ul>
+            	<li class="menu-active">
+                	<a href="home.html">
+                    	<img class="menu-light" src="images/svg/menu-home.svg" alt="home"/>
+                    	<img class="menu-dark" src="images/svg/menu-home-active.svg" alt="home"/>
+                        <span>HOME</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="routes.html">
+                    	<img class="menu-light" src="images/svg/menu-routes.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-routes-active.svg" alt="home"/>
+                        <span>ROUTES</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="reward.html">
+                    	<img class="menu-light" src="images/svg/menu-reward.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-reward-active.svg" alt="home"/>
+                        <span>REWARDS</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="profile.html">
+                    	<img class="menu-light" src="images/svg/menu-profile.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-profile-active.svg" alt="home"/>
+                        <span>PROFILE</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--Bottom menu bar end-->
+
+        <!--Content wrapper start-->
+        <div id="content-wrapper" class="Fixed">
+            <div class="full-page-wrapper">
+
+                <!--Back previous page-->
+                <div class="back-prev">
+                	<a class="no-transition" href="javascript: history.go(-1)">
+                		<img src="images/svg/back-arrow-dark.svg" alt="back previous"/>
+                    </a>
+                </div>
+
+                <!--Back to home-->
+                <div class="back-home">
+                	<a href="home.html">
+                		<img src="images/svg/back-home.svg" alt="back home"/>
+                    </a>
+                </div>
+
+                <!--Header section start-->
+                <div class="base-header">
+                	<div class="container">
+                    	<div class="row">
+                        	<div class="col-one">
+
+                            	<div class="base-num">1</div>
+
+                                <h1>The Elephant & Castle</h1>
+
+                                <div class="meta-wrapper">
+                                    <ul class="base-meta">
+                                        <li class="meta-location">
+                                            <img src="images/svg/location-meta.svg" alt="Base name"/>
+                                            <span>Chelsea North ST.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Header section end-->
+
+                <!--Content section start-->
+                <div class="base-content-wrapper">
+                	<div class="base-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-one">
+
+                                    <div class="unlock-caption">
+                                        <span>'Dude'</span>you are on location!
+                                    </div>
+
+                                    <!--Route map start-->
+                                    <div class="route-map">
+                                    	<div class="route-svg-container route-svg-single parent-fixed">
+
+                                        	<svg class="route-svg-content" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 307.873 141.434" preserveAspectRatio="xMinYMin meet">
+
+												<!--Route path start-->
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M41.565,136.846c-9.403,2.885-18.883,2.264-28.53-5.432
+                                                    c-13.792-11.003-12.891-31.296-0.223-41.527"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M175.917,126.139c-10.752,4.908-23.28,4.404-33.661-1.499
+                                                    c-9.262-5.267-15.978-14.624-26.206-18.292c-25.405-9.109-49.68,22.89-74.484,30.498"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M265.495,66.58l-86.894,58.201c-0.881,0.491-1.776,0.944-2.685,1.358"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M294.224,6.853c1.854,1.234,3.545,2.75,5.007,4.526
+                                                    c9.816,11.928,6.423,29.834-7.076,37.344l-26.66,17.857"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M234.795,32.411l40.23-28.483c6.625-1.941,13.638-0.777,19.198,2.924"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M191.084,65.146c0.959-0.989,1.778-2.156,2.405-3.491l41.306-29.244"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M166.578,20.778c7.664,7.351,9.772,18.833,5.137,28.46
+                                                    c-3.941,5.23-3.083,12.634,1.95,16.823c5.324,4.432,12.917,3.73,17.42-0.915"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M133.239,20.73l9.807-5.629c7.997-2.405,16.67-0.477,22.896,5.089
+                                                    c0.216,0.193,0.428,0.389,0.636,0.588"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M77.806,52.551l55.433-31.821"/>
+                                                <path fill="none" stroke="#ffd000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M12.813,89.887c2.066-1.668,4.444-3.068,7.123-4.117l57.87-33.219"/>
+                                            	<!--Route path end-->
+
+                                                <!--Base 1-->
+												<g class="base-info-1 base-marker base-active" transform="translate(12,90)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">1</text>
+													<g class="group-active">
+														<circle class="circle-active" fill="#ffd000" stroke="#ffd000" stroke-width="8" cx="0" cy="0" r="11"/>
+														<circle fill="#fff" cx="0" cy="0" r="7"/>
+													</g>
+												</g>
+
+                                                <!--Base 2-->
+												<g class="base-info-2 base-marker" transform="translate(77,53)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">2</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+                                                <!--Base 3-->
+												<g class="base-info-3 base-marker" transform="translate(131,22)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">3</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 4-->
+												<g class="base-info-4 base-marker" transform="translate(168,22)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">4</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 5-->
+												<g class="base-info-5 base-marker" transform="translate(190,65)">
+													<text x="-5" y="29" font-size="19" fill="#ffd000">5</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 6-->
+												<g class="base-info-6 base-marker" transform="translate(233,34)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">6</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 7-->
+												<g class="base-info-7 base-marker" transform="translate(293,6)">
+													<text x="-5" y="-17" font-size="19" fill="#ffd000">7</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 8-->
+												<g class="base-info-8 base-marker" transform="translate(268,65)">
+													<text x="-5" y="29" font-size="19" fill="#ffd000">8</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 9-->
+												<g class="base-info-9 base-marker" transform="translate(178,125)">
+													<text x="-5" y="29" font-size="19" fill="#ffd000">9</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+												<!--Base 10-->
+												<g class="base-info-10 base-marker" transform="translate(44,136)">
+													<text x="-10" y="29" font-size="19" fill="#ffd000">10</text>
+													<g class="group-unactive">
+														<circle fill="#ffd000" stroke="#fff" stroke-width="5" cx="0" cy="0" r="6"/>
+													</g>
+												</g>
+
+                                        	</svg>
+
+                                        </div>
+                                    </div>
+                                    <!--Route map end-->
+
+                                    <div class="button button-extra-large button-fullwidth">
+                                        <a href="unlock-quiz.html">Unlock Now!</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Content section start-->
+
+            </div>
+        </div>
+        <!--Content wrapper start-->
+
+    </div>
+    <!--Container wrapper end-->
+
+<!--jQuery files-->
+<script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+
+<!--Retina js-->
+<script type="text/javascript" src="js/retina.min.js"></script>
+
+<!--Mmenu js-->
+<script type="text/javascript" src="components/jquery.mmenu/jquery.mmenu.all.js"></script>
+
+<!--SlimScroll js-->
+<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+
+<!--OWL Carousel js-->
+<script type="text/javascript" src="components/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
+
+<!--Isotope js-->
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+
+<!--Imageloaded js-->
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+
+<!--Tabulous js-->
+<script type="text/javascript" src="components/tabulous.js/tabulous.js"></script>
+
+<!--Vivus js-->
+<script type="text/javascript" src="components/vivus/vivus.min.js"></script>
+
+<!--Custom js file-->
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>

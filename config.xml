@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Beerfinder</name>
+
+  <description>
+      Singha Beer Finder
+  </description>
+
+  <author href="https://build.phonegap.com" email="overconda@gmail.com">
+      Overconda
+  </author>
+
+  <icon src="icons/icon.png" />
+
+  <icon src="icons/icon-l.png" platform="android" qualifier="ldpi" />
+  <icon src="icons/icon-m.png" platform="android" qualifier="mdpi" />
+  <icon src="icons/icon-h.png" platform="android" qualifier="hdpi" />
+  <icon src="icons/icon-xh.png" platform="android" qualifier="xhdpi" />
+  <icon src="icons/icon-xxh.png" platform="android" qualifier="xxhdpi" />
+  <icon src="icons/icon-fr-xxh.png" platform="android" qualifier="fr-xxhdpi" />
+
+</widget>

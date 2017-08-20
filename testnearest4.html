@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div ><p align="center" id="output"><img src="images/loading.gif"></p></div>
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdQiuOrbp0HG-rxF6YFJNMyvSHw9eakRs">
+    </script>
+	<script>
+	$(document).ready(function(){
+	    var options = {
+	      enableHighAccuracy: true,
+	      timeout: 10000,
+	      maximumAge: 0
+	    };
+
+	    var LatLng = "";
+	    var Origin = {};
+	    var Destinations = {};
+
+
+
+
+
+	    [
+			["{name:Black Sabbath, lat:13.806223, lng:100.600335}"],
+			["{name:AC/DC, lat:13.806232, lng:100.600533]}"],
+			["{name:Aerosmith, lat:13.806242, lng:100.600736}"],
+			["{name:Van Halen, lat:13.806267, lng:100.601198}"],
+			["{name:Happy House, lat:13.812975, lng:100.604005}"]
+	    ];
+
+	    function success(pos) {
+	      var crd = pos.coords;
+	        var ret = crd.latitude + ',' + crd.longitude;
+	        //var txtOrigin = "{lat:" + crd.latitude + ",lng:" + crd.longitude + "}";
+	        //console.log(txtOrigin);
+	        //Origin = eval([txtOrigin]);
+	        
+
+	        Origin['lat'] = crd.latitude;
+	        Origin['lng'] = crd.longitude;
+	        
+	        //Origin = { lat: crd.latitude , lng: crd.longitude};
+
+	        console.log(Origin);
+
+
+
+	        Destinations[0] = [];
+	        Destinations[0]['name'] = "Black Sabbath";
+	        Destinations[0]['lat'] = "13.806223";
+	        Destinations[0]['lng'] = "100.600335";
+
+	        Destinations[1] = [];
+			Destinations[1]['name'] = "AC/DC";
+	        Destinations[1]['lat'] = "13.806232";
+	        Destinations[1]['lng'] = "100.600533";
+
+	        Destinations[2] = [];
+	        Destinations[2]['name'] = "Aerosmith";
+	        Destinations[2]['lat'] = "13.806242";
+	        Destinations[2]['lng'] = "100.600736";
+
+	        Destinations[3] = [];
+	        Destinations[3]['name'] = "Van Halen";
+	        Destinations[3]['lat'] = "13.806267";
+	        Destinations[3]['lng'] = "100.601198";
+
+	        Destinations[4] = [];
+	        Destinations[4]['name'] = "Happy House";
+	        Destinations[4]['lat'] = "13.812975";
+	        Destinations[4]['lng'] = "100.604005";
+
+	        console.log(Destinations);
+
+	        $('#output').html(ret);
+	    };
+
+	    function error(err) {
+	      //console.warn(`ERROR(${err.code}): ${err.message}`);
+	        $('#output').html("<b style='color:red'>ERROR: Expired, Your device may not have Location Service</b>");
+	    };
+
+	    navigator.geolocation.getCurrentPosition(success, error, options);
+
+	    var service = new google.maps.DistanceMatrixService;
+
+	    var lat = Origin['lat'];
+	    var lng = Origin['lng'];
+
+	    var disA = {lat: 13.806223 , lng: 100.600335};
+	    var disB = {lat: 13.806232 , lng: 100.600533};
+	    var disC = {lat: 13.806242 , lng: 100.600736};
+	    var disD = {lat: 13.806267 , lng: 100.601198};
+	    var disE = {lat: 13.812975 , lng: 100.604005};
+
+	    service.getDistanceMatrix({
+          //origins: [Origin],
+          //origins: [{lat: Origin['lat'] ,lng: Origin['lng']}], //error
+          //origins: [{lat: lat,lng: lng}], // error
+          //origins: [{lat: lat,lng: lng}], // error
+          origins: [{lat: 13.7860271,lng: 100.7106288}], // worked
+          //destinations: [Destinations[0],Destinations[1], Destinations[2], Destinations[3], Destinations[4] ], // error
+          //destinations: [ { Destinations[0],Destinations[1], Destinations[2], Destinations[3], Destinations[4] } ], // error
+          //destinations:  { Destinations[0],Destinations[1], Destinations[2], Destinations[3], Destinations[4] } , // error
+          destinations:  [disA, disB, disC, disD, disE] , // error
+          travelMode: 'DRIVING',
+          unitSystem: google.maps.UnitSystem.METRIC,
+          avoidHighways: false,
+          avoidTolls: false
+        }, (response, status)=> {
+          if (status !== 'OK') {
+            alert('Error was: ' + status);
+          } else {
+            var originList = response.originAddresses;
+            var destinationList = response.destinationAddresses;
+            
+            
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            /*
+            deleteMarkers(markersArray);
+
+
+            var showGeocodedAddressOnMap = function(asDestination) {
+              var icon = asDestination ? destinationIcon : originIcon;
+              return function(results, status) {
+                if (status === 'OK') {
+                  map.fitBounds(bounds.extend(results[0].geometry.location));
+                  markersArray.push(new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    icon: icon
+                  }));
+                } else {
+                  alert('Geocode was not successful due to: ' + status);
+                }
+              };
+            };
+            */
+
+            for (var i = 0; i < originList.length; i++) {
+              var results = response.rows[i].elements;
+              //geocoder.geocode({'address': originList[i]},
+              //    showGeocodedAddressOnMap(false));
+              for (var j = 0; j < results.length; j++) {
+                //geocoder.geocode({'address': destinationList[j]},
+                //    showGeocodedAddressOnMap(true));
+                outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
+                    ': ' + results[j].distance.text + ' in ' +
+                    results[j].duration.text + '<br>';
+              }
+            }
+          }
+        });
+
+	    
+	    
+    
+    	
+    });
+    </script>
+   
+</body>
+</html>

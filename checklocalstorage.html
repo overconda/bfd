@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<title>Singha Beerfinder</title>
+
+<!--Animate CSS-->
+
+<!--Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+
+</head>
+
+<body class="login-front">
+
+<!--jQuery files-->
+<script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+
+<ul id="data">
+</ul>
+<script>
+$(document).ready(function(){
+  $('#data').append('<li><b>FB ID</b> : ' + localStorage.getItem('fbId'));
+  $('#data').append('<li><b>FB Name</b> : ' + localStorage.getItem('fbName'));
+  $('#data').append('<li><b>FB Avatar</b> : ' + localStorage.getItem('fbAvatar'));
+});
+</script>
+
+
+</body>
+</html>

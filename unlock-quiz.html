@@ -1,0 +1,476 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv=”Pragma” content=”no-cache”>
+<meta http-equiv=”Expires” content=”-1″>
+<meta http-equiv=”CACHE-CONTROL” content=”NO-CACHE”>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<title>Singha Beerfinder</title>
+
+<!--Phonegap-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+		app.initialize();
+</script>
+<!--Phonegap-->
+
+
+<!--Animate CSS-->
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+<!--Mmenu CSS-->
+<link href="components/jquery.mmenu/jquery.mmenu.all.css" rel="stylesheet" type="text/css">
+
+<!--OWL Carousel CSS-->
+<link href="components/OwlCarousel2-2.2.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+<link href="components/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+
+<!--Tabulous CSS-->
+<link href="components/tabulous.js/tabulous.css" rel="stylesheet" type="text/css">
+
+<!--Main elements CSS-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!--Color scheme CSS-->
+<link href="css/color-scheme.css" rel="stylesheet" type="text/css">
+
+<!--Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+
+<!--jQuery files-->
+<script type="text/javascript" src="js/vendor/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body class="full-page unlock-quiz">
+
+	<!--Page loading-->
+    <div id="page-loading" class="Fixed">
+        <div class="loading-element">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+	<!--End-->
+
+    <!--Gradient background-->
+    <div id="gradient-bg"></div>
+    <!--End-->
+
+    <!--Slide menu start-->
+    <nav id="slide-menu">
+       <ul class="mm-nolistview">
+          <li class="slide-menu-active">
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-about.svg" alt="About Beerfinder"/></figure>
+            	<span>ABOUT BEERFINDER</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-faqs.svg" alt="How To Play & Rule"/></figure>
+            	<span>HOW TO PLAY & RULE</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-top.svg" alt="Top Beerfinder"/></figure>
+            	<span>TOP BEERFINDER</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-faqs.svg" alt="FAQs"/></figure>
+            	<span>FAQs</span>
+            </a>
+          </li>
+          <li>
+          	<a href="#">
+            	<figure><img src="images/svg/slide-menu-terms.svg" alt="Term & Condition"/></figure>
+            	<span>TERMS & CONDITION</span>
+            </a>
+          </li>
+          <li>
+          	<a href="logout.html">
+            	<figure><img src="images/svg/slide-menu-logout.svg" alt="Log Out"/></figure>
+            	<span>LOG OUT</span>
+            </a>
+          </li>
+       </ul>
+    </nav>
+    <!--Slide menu end-->
+
+    <!--Menu notify start-->
+    <div class="notifying">
+    	<div class="notify-inset">
+
+            <h2>Just Notifying</h2>
+
+            <div class="notify-subject">
+                You are still be the pub guardian at
+            </div>
+
+            <div class="notify-image bg-image" data-bg-image="images/upload/slide-menu-notify-img.jpg"></div>
+
+            <div class="notify-base-name">
+                Dandvlvan, LDN
+            </div>
+
+            <div class="notify-time">
+                Time <span>15.30 Mins</span>
+            </div>
+
+            <div class="notify-desc">
+                25 People are trying to sack you down!
+            </div>
+
+        </div>
+    </div>
+    <!--Menu notify end-->
+
+	<!--Container wrapper start-->
+    <div id="container-wrapper">
+
+        <!--Top menu bar start-->
+        <div id="menu-top" class="Fixed">
+            <div class="menu-top-wrap">
+
+                <!--Burger menu-->
+                <div id="burger">
+                    <span></span>
+                    <span></span>
+                    <div class="burger-bar1"></div>
+                    <div class="burger-bar2"></div>
+                    <div class="burger-bar3"></div>
+                </div>
+
+                <!--Logo-->
+                <div id="logo">
+                    <a href="home.html">
+                        <img src="images/logo-top.png" alt="Singha Beerfinder" />
+                    </a>
+                </div>
+
+                <!--Page title-->
+                <h1 class="page-title">News</h1>
+
+            </div>
+        </div>
+        <!--Top menu bar end-->
+
+        <!--Bottom menu bar start-->
+        <div id="menu-bottom" class="Fixed">
+        	<ul>
+            	<li class="menu-active">
+                	<a href="home.html">
+                    	<img class="menu-light" src="images/svg/menu-home.svg" alt="home"/>
+                    	<img class="menu-dark" src="images/svg/menu-home-active.svg" alt="home"/>
+                        <span>HOME</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="routes.html">
+                    	<img class="menu-light" src="images/svg/menu-routes.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-routes-active.svg" alt="home"/>
+                        <span>ROUTES</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="reward.html">
+                    	<img class="menu-light" src="images/svg/menu-reward.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-reward-active.svg" alt="home"/>
+                        <span>REWARDS</span>
+                    </a>
+                </li>
+                <li>
+                	<a href="profile.html">
+                    	<img class="menu-light" src="images/svg/menu-profile.svg" alt="home"/>
+                        <img class="menu-dark" src="images/svg/menu-profile-active.svg" alt="home"/>
+                        <span>PROFILE</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--Bottom menu bar end-->
+
+        <!--Content wrapper start-->
+        <div id="content-wrapper" class="Fixed">
+            <div class="full-page-wrapper">
+
+                <!--Back previous page-->
+                <div class="back-prev">
+                	<a class="no-transition" href="javascript: history.go(-1)">
+                		<img src="images/svg/back-arrow-dark.svg" alt="back previous"/>
+                    </a>
+                </div>
+
+                <!--Back to home-->
+                <div class="back-home">
+                	<a href="home.html">
+                		<img src="images/svg/back-home.svg" alt="back home"/>
+                    </a>
+                </div>
+
+                <!--Header section start-->
+                <div class="base-header">
+                	<div class="container">
+                    	<div class="row">
+                        	<div class="col-one">
+
+                            	<div class="base-num">1</div>
+
+                                <h1 class="base_name">The Elephant & Castle</h1>
+
+                                <div class="quiz-type">Unlock quiz</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Header section end-->
+
+                <!--Content section start-->
+                <div class="base-content-wrapper">
+                	<div class="base-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-one">
+
+                                    <!--Quiz progress bar-->
+
+                                    <div class="quiz-progress">
+                                    	<div class="progress-bar" data-percentage="100"></div>
+                                    </div>
+
+																		<script>
+																			$(document).ready(function(){
+																				var second = 1000;
+																				var time = 7 * second; // seconds
+																				var duration = 500; // milliseconds
+																				var fulltime = time;
+																				var mycountdown = null
+
+
+																				function percent_bar(){
+																					time-=duration;
+																					if(time<=0){
+																						//alert('timeout');
+																						clearInterval(mycountdown);
+
+																						//// time's up , redirect to another page
+																						window.location = "timesup.html?base_id=" + base_id;
+																					}
+																					var percent = 100-(time*100/fulltime);
+																					$('.progress-bar').attr('data-percentage', percent);
+
+
+
+
+
+																					var quizProgress = $('.quiz-progress'),
+																						progressBar = $('.progress-bar'),
+																						quizProgressWidth = quizProgress.width(),
+																						percentage = progressBar.attr('data-percentage')+'%';
+																						console.log(quizProgressWidth);
+																						console.log(percent);
+																						console.log(percentage);
+
+																					progressBar.animate({
+																						width: percentage
+																					});
+
+																				}
+
+																				mycountdown = setInterval(percent_bar, duration);
+
+																			});
+
+
+
+																		</script>
+
+                                    <!--Quiz title-->
+                                    <h2 class="quiz-title">How many framed poster on the big green wall?</h2>
+
+                                    <!--Answer buttons-->
+
+
+
+	                                    <div class="button button-fullwidth correct" id="ans_1">
+																					<a href="#"></a>
+																			</div>
+
+																			<div class="button button-fullwidth correct" id="ans_2">
+																					<a href="#"></a>
+																			</div>
+
+																			<div class="button button-fullwidth correct" id="ans_3">
+																					<a href="#"></a>
+																			</div>
+
+																			<div class="button button-fullwidth correct" id="ans_4">
+																					<a href="#"></a>
+																			</div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Content section start-->
+
+            </div>
+        </div>
+        <!--Content wrapper start-->
+
+    </div>
+    <!--Container wrapper end-->
+
+
+
+<!--Retina js-->
+<script type="text/javascript" src="js/retina.min.js"></script>
+
+<!--Mmenu js-->
+<script type="text/javascript" src="components/jquery.mmenu/jquery.mmenu.all.js"></script>
+
+<!--SlimScroll js-->
+<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+
+<!--OWL Carousel js-->
+<script type="text/javascript" src="components/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
+
+<!--Isotope js-->
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+
+<!--Imageloaded js-->
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+
+<!--Tabulous js-->
+<script type="text/javascript" src="components/tabulous.js/tabulous.js"></script>
+
+<!--Vivus js-->
+<script type="text/javascript" src="components/vivus/vivus.min.js"></script>
+
+<!--Custom js file-->
+<script type="text/javascript" src="js/custom.js"></script>
+
+<script>
+function parseQuery()
+{
+  var currentURL = document.URL;
+  var params = currentURL.split("?");
+  var str = params[1];
+  if(typeof str != "string" || str.length == 0) return {};
+  var s = str.split("&");
+  var s_length = s.length;
+  var bit, query = {}, first, second;
+  for(var i = 0; i < s_length; i++)
+    {
+    bit = s[i].split("=");
+    first = decodeURIComponent(bit[0]);
+    if(first.length == 0) continue;
+    second = decodeURIComponent(bit[1]);
+    if(typeof query[first] == "undefined") query[first] = second;
+    else if(query[first] instanceof Array) query[first].push(second);
+    else query[first] = [query[first], second];
+    }
+  return query;
+//console.log(query)
+}
+
+var param = parseQuery();
+var base_id = param['base_id'];
+
+$(document).ready(function(){
+	$.getJSON( "_get_base_info.php?base_id=" + base_id, function( data ) {
+			//console.log(data[3]['base_name']);  ////<< OK
+			var d = data[0];
+
+			base_name = d['base_name'];
+			base_desc1 = d['base_desc1'];
+			base_desc2 = d['base_desc2'];
+			route_id = d['route_id'];
+			route_name = d['route_name'];
+
+			$('.base_name').text(base_name);
+			$('#unlock-now').text('Unlock NoW');
+			$('#unlock-now').attr('href','unlock-quiz.html?base_id='+base_id);
+
+	});
+
+
+		//$('.quiz-progress').css('display','none');
+		$('.quiz-title').css('margin-top','60px');
+	var quiz_id=0;
+	var quiz_title;
+
+	quiz_id = localStorage.getItem('quiz_id');
+	quiz_title = localStorage.getItem('quiz_title');
+
+	$('.quiz-title').text(quiz_title);
+
+
+
+
+			console.log('quiz_id from localStorage: ' + quiz_id);
+
+			$.getJSON( "_get_quiz_answer.php?quiz_id=" + quiz_id , function( data ) {
+					//console.log(data[3]['base_name']);  ////<< OK
+					var d = data;
+
+					// hide all answer
+					for(var i = 1; i<=4; i++){
+						var ansid = '#ans_' + i;
+						$(ansid).css('display','none');
+					}
+
+					console.log(d);
+					for(var i = 0; i<d.length; i++){
+						ans_id = d[i]['ans_id'];
+						ans_text = d[i]['ans_text'];
+
+
+						var ansid = '#ans_' + eval(i+1);
+						var anslink = '#ans_' + eval(i+1) + ' a';
+
+						user_id = localStorage.getItem('userid');
+
+						console.log(ans_text);
+						console.log(anslink);
+						$(ansid).css('display','block');
+						$(ansid).css('z-index','999');
+						$(anslink).text(ans_text);
+						$(anslink).attr('href','send_quiz.html?quiz_id=' + quiz_id + '&ans_id=' + ans_id + '&base_id=' + base_id + '&user_id=' + user_id);
+
+
+					}
+
+
+
+			});
+
+
+
+$('[id^="ans_"]').click(function(){
+	var elem = '#' + this.id + ' a';
+	var href = $(elem).attr('href');
+	window.location = href;
+});
+
+
+});
+
+</script>
+
+</body>
+</html>
