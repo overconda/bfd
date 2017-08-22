@@ -36,6 +36,18 @@ class TwUser {
             //Get user data from the database
             $result = $this->db->query($prevQuery);
             $userData = $result->fetch_assoc();
+
+
+						//////// Check for Beerfinder User table
+						$now = date('Y-m-d H:i:s');
+						$prevQuery = "SELECT * FROM users where twitter_id = '" . $userData['oauth_uid'] . "' " ;
+						$prevResult = $this->db->query($prevQuery);
+            if($prevResult->num_rows > 0){
+							/// do nothing
+						}else{
+							$query = "INSERT INTO users SET twitter_id='" . $userData['oauth_uid'] . "', username='" . $userData['username'] . "', avatar_twitter='" . $userData['picture'] . "', cdate='" . $now . "' ";
+							$insert = $this->db->query($query);
+						}
         }
 
         //Return user data

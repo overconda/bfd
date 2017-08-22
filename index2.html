@@ -428,6 +428,7 @@
                     </div>
                     <!--Login logo end-->
 
+
                     <!--Login method start-->
                     <div class="login-method">
                         <ul class="animated splash-fade">
@@ -642,6 +643,24 @@
 
     });
   }
+</script>
+
+<script>
+$(document).ready(function(){
+  /////// Twitter
+  $.get( "__tw_is_auth.php", function( data ) {
+    if(data['auth']=='ok'){
+      window.location = "home2.html";
+    }else{
+      $.get( "__tw_get_login_url.php", function( urldata ) {
+          console.log('twitter url');
+          console.log(urldata);
+          $('.login-twitter a').attr('href',urldata['url']);
+      });
+
+    }
+  });
+});
 </script>
 
 </body>

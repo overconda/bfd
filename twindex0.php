@@ -6,13 +6,6 @@ session_start();
 include_once 'twConfig.php';
 include_once 'TwUser.php';
 
-//If OAuth token not matched
-if(isset($_REQUEST['oauth_token']) && $_SESSION['token'] !== $_REQUEST['oauth_token']){
-	//Remove token from session
-	unset($_SESSION['token']);
-	unset($_SESSION['token_secret']);
-}
-
 //If user already verified
 if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_SESSION['request_vars'])){
 	//Retrive variables from session
@@ -22,12 +15,9 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 	$oauthTokenSecret = $_SESSION['request_vars']['oauth_token_secret'];
 	$profilePicture	  = $_SESSION['userData']['picture'];
 
-
 	/*
 	 * Prepare output to show to the user
 	 */
-
-	 /*
 	$twClient = new TwitterOAuth($consumerKey, $consumerSecret, $oauthToken, $oauthTokenSecret);
 
 	//If user submits a tweet to post to twitter
@@ -35,9 +25,8 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 		$my_update = $twClient->post('statuses/update', array('status' => $_POST["updateme"]));
 	}
 
-
 	//Display username and logout link
-	$output = '<div class="welcome_txt">Welcome <strong>'.$username.'</strong> (Twitter ID : '.$twitterId.'). <a href="logout.php">Logout</a>!</div>';
+	$output = '<div class="welcome_txt">Welcome <strong>'.$username.'</strong> (Twitter ID : '.$twitterId.'). <a href="twlogout.php">Logout</a>!</div>';
 
 	//Display profile iamge and tweet form
 	$output .= '<div class="tweet_box">';
@@ -51,10 +40,8 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 	$output .= '</tr></table></form>';
 	$output .= '</div>';
 
-
 	//Get latest tweets
 	$myTweets = $twClient->get('statuses/user_timeline', array('screen_name' => $username, 'count' => 5));
-
 
 	//Display the latest tweets
 	$output .= '<div class="tweet_list"><strong>Latest Tweets : </strong>';
@@ -63,8 +50,6 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 		$output .= '<li>'.$tweet->text.' <br />-<i>'.$tweet->created_at.'</i></li>';
 	}
 	$output .= '</ul></div>';
-
-	*/
 }elseif(isset($_REQUEST['oauth_token']) && $_SESSION['token'] == $_REQUEST['oauth_token']){
 	//Call Twitter API
 	$twClient = new TwitterOAuth($consumerKey, $consumerSecret, $_SESSION['token'] , $_SESSION['token_secret']);
@@ -111,11 +96,12 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 		unset($_SESSION['token']);
 		unset($_SESSION['token_secret']);
 
+		echo "<pre>" . print_r($userData) . "</pre>";
 
 		//Redirect the user back to the same page
-		header('Location: home.html');
+		//header('Location: ./');
 	}else{
-		//$output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
+		$output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
 	}
 }else{
 	//Fresh authentication
@@ -132,9 +118,23 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'verified' && !empty($_S
 		$authUrl = $twClient->getAuthorizeURL($request_token['oauth_token']);
 
 		//Display twitter login button
-		//$output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="tw-images/sign-in-with-twitter.png" width="151" height="24" border="0" /></a>';
+			//$output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="tw-images/sign-in-with-twitter.png" width="151" height="24" border="0" /></a>';
+			$output = filter_var($authUrl, FILTER_SANITIZE_URL);
 	}else{
-		//$output = '<h3 style="color:red">Error connecting to twitter! try again later!</h3>';
+		$output = '<h3 style="color:red">Error connecting to twitter! try again later!</h3>';
 	}
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Login with Twitter using PHP by CodexWorld</title>
+	<link rel='stylesheet' type='text/css' href='twstyle.css'>
+</head>
+<body>
+	<!-- Display login button / profile information -->
+	<?php echo $output; ?>
+
+</body>
+</html>
